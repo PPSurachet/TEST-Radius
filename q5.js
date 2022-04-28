@@ -18,7 +18,7 @@ function isArraySorted(array) {
 }
 
 function solution(input) {
-  let swabTimes = 0;
+  let swapTimes = 0;
   for (let index = 1; index < input.length; index++) {
     if (input[index] > input[index - 1]) {
       const maxNumber = Math.max(...input);
@@ -32,9 +32,9 @@ function solution(input) {
         input[index] = input[indexMaxNumber - 1];
         input[indexMaxNumber - 1] = currentValueIndex;
 
-        swabTimes++;
+        swapTimes++;
 
-        if (swabTimes >= 2) return false;
+        if (swapTimes >= 2) return false;
 
         if (isArraySorted(input)) return true;
       }
@@ -55,6 +55,6 @@ console.log(input3, solution(input3));
 //! return true
 
 //! [1, 3, 5, 3, 4]
-//! [1, 3, 3, 5, 4]
+//! [1, 3, 4, 3, 5]
 //! [1, 3, 3, 4, 5]
 //! return false
